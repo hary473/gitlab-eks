@@ -32,3 +32,17 @@ module "gitlab" {
 
   # Add additional GitLab configuration options here
 }
+
+module "gitlab-runner" {
+  source = "gitlab/gitlab-runner/kubernetes"
+
+  gitlab_url = module.gitlab.gitlab_url
+
+  # Add additional GitLab Runner configuration options here
+}
+
+module "grafana" {
+  source = "grafana/grafana/kubernetes"
+
+  # Add additional Grafana configuration options here
+}    
